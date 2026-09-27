@@ -107,12 +107,11 @@ function siteFooter() {
     </div>
   </footer>
   <div id="mobileActionBar" class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-navy/95 backdrop-blur border-t border-cream/10 flex">
-    <a id="mobileWaLink" target="_blank" rel="noopener" class="flex-1 text-center py-3 text-cream font-semibold text-sm border-r border-cream/10">WhatsApp</a>
-    <a href="/contact.html" class="flex-1 text-center py-3 text-coral font-semibold text-sm">Get a quote</a>
+    <a href="/contact.html" class="flex-1 text-center py-3.5 text-coral font-semibold text-sm">Get a quote</a>
   </div>
   <div class="h-14 md:hidden"></div>
   <a id="floatingWaBtn" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"
-     class="hidden md:flex fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full items-center justify-center shadow-lg transition hover:scale-105"
+     class="flex fixed bottom-20 right-4 md:bottom-6 md:right-6 z-40 w-14 h-14 rounded-full items-center justify-center shadow-lg transition hover:scale-105 active:scale-95"
      style="background:#25D366;color:#fff;">
     ${whatsAppIconSvg()}
   </a>`;
@@ -125,7 +124,5 @@ function mountLayout(active) {
   const mobileMenu = document.getElementById("mobileMenu");
   menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
 
-  const waLink = buildWhatsAppLink();
-  document.getElementById("floatingWaBtn").href = waLink;
-  document.getElementById("mobileWaLink").href = waLink;
+  document.getElementById("floatingWaBtn").href = buildWhatsAppLink();
 }
