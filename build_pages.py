@@ -8,7 +8,7 @@ BreadcrumbList + Product/Place JSON-LD, and real alt text on every image.
 import json, os, html
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-SITE_URL = "https://www.pattayayachtrentals.com"  # placeholder domain until a real one is confirmed
+SITE_URL = "https://pattayayachtrentals.com"  # placeholder domain until a real one is confirmed
 BUSINESS_NAME = "Pattaya Yacht Rentals"
 PHONE = "+66653159096"
 PHONE_DISPLAY = "+66 65 315 9096"

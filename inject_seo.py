@@ -5,7 +5,7 @@ into the existing hand-written static pages (everything except the generated
 import re, os, json
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-SITE_URL = "https://www.pattayayachtrentals.com"
+SITE_URL = "https://pattayayachtrentals.com"
 BUSINESS_NAME = "Pattaya Yacht Rentals"
 PHONE = "+66653159096"
 EMAIL = "info@yacht-charters-phuket.com"

@@ -2,7 +2,7 @@
 import json, os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-SITE_URL = "https://www.pattayayachtrentals.com"
+SITE_URL = "https://pattayayachtrentals.com"
 
 with open("/tmp/fleet.json") as f:
     FLEET = json.load(f)
