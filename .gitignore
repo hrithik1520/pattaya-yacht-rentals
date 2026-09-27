@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+*.log
+js/data.js.bak
+icons_tmp/
+
+# Leftover raw uploads not referenced by any page (not in js/data.js) — kept locally, not tracked.
+images/azimut-55ft/
+images/Satisfaction-65ft/

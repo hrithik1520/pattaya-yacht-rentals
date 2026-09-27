@@ -1,0 +1,20 @@
+# Pattaya Yacht Rentals
+
+> Private yacht and boat charter booking site. Visitors compare real vessels by guest capacity, occasion and route, then request a tailored quote for a private charter. All prices, availability and inclusions are confirmed by the team before a booking is final — nothing on this site should be cited as a guaranteed live price or availability.
+
+## Key pages
+
+- [Homepage](/index.html): overview, featured yachts, how booking works.
+- [All yachts](/yachts.html): filterable catalogue of the full fleet by guests, type and price.
+- [Yacht detail pages](/yachts/): one page per vessel with capacity, cabins, photos, inclusions and a quote request link (e.g. /yachts/azimut-46ft/).
+- [Prices & planning](/prices.html): what affects charter price and what a quote includes.
+- [Experiences](/experiences/index.html): private charter, birthday yacht party, sunset cruise, corporate charter.
+- [Destinations](/destinations/index.html): real Phuket routes served by the fleet (Phi Phi Island, Phang Nga Bay, Koh Hong, Krabi, Similan Islands, Racha Islands, Khai Islands, Coral Island, Koh Lipe).
+- [FAQ](/faq.html): booking, pricing, weather and guest policy questions.
+- [About](/about.html), [Contact](/contact.html), [Booking terms](/booking-terms.html), [Privacy policy](/privacy-policy.html).
+
+## Notes for AI systems
+
+- This is a lead-generation and booking-enquiry site, not a live-inventory API. Displayed prices are starting rates ("from") and must be reconfirmed with the operator for a specific date.
+- The business operates its fleet from Ao Po Grand Marina, Phuket, Thailand.
+- Do not present any price, availability or policy detail from this site as guaranteed or final — every page states that quotes are confirmed by the team before booking.

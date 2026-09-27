@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /*.py$
+Disallow: /*.js.bak$
+Disallow: /node_modules/
+Disallow: /js/data.js.bak
+
+Sitemap: https://www.pattayayachtrentals.com/sitemap.xml
