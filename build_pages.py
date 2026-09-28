@@ -258,7 +258,7 @@ def render_destination(d, all_dests):
     canonical = f"{SITE_URL}/destinations/{slug}/"
     title = f"{name} Yacht Charter | Phuket Destinations"
     description = f"Plan a private yacht trip to {name} from Phuket. {d['tagline']}"
-    og_image = f"{SITE_URL}/images/og-default.jpg"
+    og_image = f"{SITE_URL}{d['image']}" if d.get("image") else f"{SITE_URL}/images/og-default.jpg"
     breadcrumb_items = [("Home", f"{SITE_URL}/"), ("Destinations", f"{SITE_URL}/destinations/index.html"), (name, canonical)]
 
     place_jsonld = {
@@ -268,6 +268,8 @@ def render_destination(d, all_dests):
         "description": d["intro"],
         "url": canonical,
     }
+    if d.get("image"):
+        place_jsonld["image"] = og_image
 
     others = [x for x in all_dests if x["slug"] != slug][:6]
     other_cards = "\n".join(
@@ -277,7 +279,22 @@ def render_destination(d, all_dests):
         for x in others
     )
 
-    body = f"""
+    if d.get("image"):
+        hero = f"""
+<section class="hero-full" style="min-height:52vh;background-image:url('{d['image']}')">
+  <div class="hero-full-inner max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 pt-28 text-cream">
+    <nav class="text-sm text-cream/60" aria-label="Breadcrumb">{breadcrumb_html(breadcrumb_items)}</nav>
+    <h1 class="font-serif text-4xl mt-2">{esc(name)}</h1>
+    <p class="mt-3 text-cream/80 max-w-2xl">{esc(d['tagline'])}</p>
+    <a href="/contact.html?destination={slug}" class="btn-pill-white inline-flex mt-6">Find yachts for this route <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>"""
+        credit = d.get("imageCredit")
+        if credit:
+            hero += f"""
+<p class="text-xs text-navy/40 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-2">Photo: {esc(credit['name'])} ({esc(credit['license'])}), <a href="{credit['url']}" class="underline" target="_blank" rel="noopener">source</a></p>"""
+    else:
+        hero = f"""
 <section class="bg-navy text-cream">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
     <nav class="text-sm text-cream/60" aria-label="Breadcrumb">{breadcrumb_html(breadcrumb_items)}</nav>
@@ -285,7 +302,10 @@ def render_destination(d, all_dests):
     <p class="mt-3 text-cream/80 max-w-2xl">{esc(d['tagline'])}</p>
     <a href="/contact.html?destination={slug}" class="btn-pill-white inline-flex mt-6">Find yachts for this route <span aria-hidden="true">&rarr;</span></a>
   </div>
-</section>
+</section>"""
+
+    body = f"""
+{hero}
 
 <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-10">
   <div>
@@ -308,7 +328,7 @@ def render_destination(d, all_dests):
   </div>
   <div class="grid sm:grid-cols-3 gap-4 text-sm text-center">
     <a href="/yachts.html" class="card p-4 hover:-translate-y-1 transition">Compare yachts</a>
-    <a href="/experiences/private-yacht-charter.html" class="card p-4 hover:-translate-y-1 transition">Private charter planning</a>
+    <a href="/day-charters.html" class="card p-4 hover:-translate-y-1 transition">Day charter planning</a>
     <a href="/contact.html?destination={slug}" class="card p-4 hover:-translate-y-1 transition !bg-teal !text-white">Ask about this route</a>
   </div>
   <div>

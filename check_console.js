@@ -9,9 +9,7 @@ const destinations = JSON.parse(fs.readFileSync("/tmp/destinations.json"));
 const staticPages = [
   "/index.html", "/yachts.html", "/prices.html", "/about.html", "/contact.html",
   "/faq.html", "/booking-terms.html", "/privacy-policy.html",
-  "/experiences/index.html", "/experiences/private-yacht-charter.html",
-  "/experiences/birthday-yacht-party.html", "/experiences/sunset-cruise.html",
-  "/experiences/corporate-yacht-charter.html", "/destinations/index.html",
+  "/day-charters.html", "/destinations/index.html",
   "/404.html",
 ];
 

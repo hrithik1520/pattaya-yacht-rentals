@@ -35,7 +35,7 @@ function siteHeader(active) {
       <a href="/index.html" class="font-serif text-xl text-navy tracking-tight">Pattaya <span class="text-coral">Yacht</span> Rentals</a>
       <nav class="hidden md:flex items-center gap-6 text-sm text-navy/80">
         ${link("/yachts.html", "Yachts", "yachts")}
-        ${link("/experiences/index.html", "Experiences", "experiences")}
+        ${link("/day-charters.html", "Day Charters", "day-charters")}
         ${link("/destinations/index.html", "Destinations", "destinations")}
         ${link("/prices.html", "Prices & Planning", "prices")}
         ${link("/about.html", "About", "about")}
@@ -53,7 +53,7 @@ function siteHeader(active) {
         <div class="px-4 py-4 space-y-3 text-navy/90">
           ${link("/yachts.html", "Yachts", "yachts")}
           <div class="block"></div>
-          ${link("/experiences/index.html", "Experiences", "experiences")}
+          ${link("/day-charters.html", "Day Charters", "day-charters")}
           <div class="block"></div>
           ${link("/destinations/index.html", "Destinations", "destinations")}
           <div class="block"></div>
@@ -82,7 +82,7 @@ function siteFooter() {
         <p class="text-sm font-semibold uppercase tracking-wide text-coral mb-3">Explore</p>
         <ul class="space-y-2 text-sm text-cream/80">
           <li><a href="/yachts.html" class="hover:text-white">All yachts</a></li>
-          <li><a href="/experiences/index.html" class="hover:text-white">Experiences</a></li>
+          <li><a href="/day-charters.html" class="hover:text-white">Day Charters</a></li>
           <li><a href="/destinations/index.html" class="hover:text-white">Destinations</a></li>
           <li><a href="/prices.html" class="hover:text-white">Prices & planning</a></li>
         </ul>

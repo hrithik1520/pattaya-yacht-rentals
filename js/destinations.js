@@ -7,6 +7,8 @@ const DESTINATIONS = [
     intro: "Phi Phi is the destination most guests ask for first — dramatic limestone cliffs rising straight out of turquoise water, with Maya Bay, Pileh Lagoon and Monkey Beach all within reach on a full-day charter from Phuket.",
     goodFor: "Full-day charters, swimming and snorkeling stops, groups wanting the classic Phuket island day.",
     travelTime: "Around 1.5–2 hours each way by yacht from Ao Po Grand Marina, depending on vessel speed.",
+    image: "/images/destinations/phi-phi-island.webp",
+    imageCredit: { name: "Jakob Owens", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Phi_Phi_From_Above_(Unsplash).jpg" },
   },
   {
     slug: "phang-nga-bay",
@@ -15,6 +17,8 @@ const DESTINATIONS = [
     intro: "Phang Nga Bay is known for its dramatic limestone karst formations rising from calm, sheltered water — including Khao Phing Kan (James Bond Island) and hidden lagoons reachable by canoe.",
     goodFor: "Calmer water, scenic cruising, families and guests who prefer sheltered bays over open sea.",
     travelTime: "Around 1–1.5 hours each way from Ao Po Grand Marina, on the same side of Phuket as the marina.",
+    image: "/images/destinations/phang-nga-bay.webp",
+    imageCredit: { name: "Kemal Kaya", license: "CC BY-SA 2.5", url: "https://commons.wikimedia.org/wiki/File:Khao_Phing_Kan_and_Koh_Tapu_(James_Bond_Island).jpg" },
   },
   {
     slug: "koh-hong",
@@ -47,6 +51,8 @@ const DESTINATIONS = [
     intro: "Racha Yai and Racha Noi sit south of Phuket and are a popular half-day or full-day option for swimming and snorkeling without the longer transit of the Similans.",
     goodFor: "Half-day charters, swimming and snorkeling, groups short on time.",
     travelTime: "Distance depends on departure marina — confirmed per vessel and route.",
+    image: "/images/destinations/racha-islands.webp",
+    imageCredit: { name: "ELPHUKET", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Racha_Yai_Island.jpg" },
   },
   {
     slug: "khai-islands",

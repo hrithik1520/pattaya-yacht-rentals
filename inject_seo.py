@@ -38,11 +38,7 @@ PAGES = {
     "faq.html": ("/faq.html", [("Home", "/"), ("FAQ", "/faq.html")]),
     "booking-terms.html": ("/booking-terms.html", [("Home", "/"), ("Booking Terms", "/booking-terms.html")]),
     "privacy-policy.html": ("/privacy-policy.html", [("Home", "/"), ("Privacy Policy", "/privacy-policy.html")]),
-    "experiences/index.html": ("/experiences/index.html", [("Home", "/"), ("Experiences", "/experiences/index.html")]),
-    "experiences/private-yacht-charter.html": ("/experiences/private-yacht-charter.html", [("Home", "/"), ("Experiences", "/experiences/index.html"), ("Private Yacht Charter", "/experiences/private-yacht-charter.html")]),
-    "experiences/birthday-yacht-party.html": ("/experiences/birthday-yacht-party.html", [("Home", "/"), ("Experiences", "/experiences/index.html"), ("Birthday Yacht Party", "/experiences/birthday-yacht-party.html")]),
-    "experiences/sunset-cruise.html": ("/experiences/sunset-cruise.html", [("Home", "/"), ("Experiences", "/experiences/index.html"), ("Sunset Cruise", "/experiences/sunset-cruise.html")]),
-    "experiences/corporate-yacht-charter.html": ("/experiences/corporate-yacht-charter.html", [("Home", "/"), ("Experiences", "/experiences/index.html"), ("Corporate Yacht Charter", "/experiences/corporate-yacht-charter.html")]),
+    "day-charters.html": ("/day-charters.html", [("Home", "/"), ("Day Charters", "/day-charters.html")]),
     "destinations/index.html": ("/destinations/index.html", [("Home", "/"), ("Destinations", "/destinations/index.html")]),
 }
 
