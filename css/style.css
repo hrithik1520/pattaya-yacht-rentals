@@ -27,10 +27,11 @@ body {
   border-radius: 999px;
   font-weight: 600;
   font-size: .875rem;
-  transition: opacity .15s ease, transform .15s ease;
+  transition: opacity .15s ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
   display: inline-block;
 }
 .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+.btn-primary:active { transform: scale(0.97); }
 
 .btn-secondary {
   background: transparent;
@@ -41,9 +42,10 @@ body {
   font-weight: 600;
   font-size: .875rem;
   display: inline-block;
-  transition: background .15s ease, color .15s ease;
+  transition: background .15s ease, color .15s ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 .btn-secondary:hover { background: var(--navy); color: #fff; }
+.btn-secondary:active { transform: scale(0.97); }
 
 .card {
   background: #fff;
@@ -122,9 +124,10 @@ summary::-webkit-details-marker { display: none; }
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow .15s ease;
 }
 .btn-pill-white:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+.btn-pill-white:active { transform: scale(0.97); }
 
 /* Scrolling marquee divider */
 .marquee {
@@ -186,3 +189,28 @@ summary::-webkit-details-marker { display: none; }
 }
 .dark-card:hover img { transform: scale(1.06); }
 .dark-card > * { position: relative; z-index: 1; }
+
+/* Mobile nav menu: animate open/close via grid-template-rows so an unknown
+   content height can still transition (no hardcoded pixel height needed).
+   Scoped to below the `md` breakpoint (767.98px) so this never competes in
+   specificity with Tailwind's `.md:hidden { display: none }` at desktop —
+   an unscoped `#mobileMenu { display: grid }` would win over that class
+   rule at any width, since an ID selector always outranks a class one. */
+@media (max-width: 767.98px) {
+  #mobileMenu {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #mobileMenu[data-open] {
+    grid-template-rows: 1fr;
+  }
+}
+#mobileMenu > .mobile-menu-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mobileMenu { transition: none; }
+}

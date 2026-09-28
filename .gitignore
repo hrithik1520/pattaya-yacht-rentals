@@ -7,3 +7,8 @@ icons_tmp/
 # Leftover raw uploads not referenced by any page (not in js/data.js) — kept locally, not tracked.
 images/azimut-55ft/
 images/Satisfaction-65ft/
+
+# Claude Code agent skills (dev tooling, not website content).
+.agents/
+.claude/
+skills-lock.json

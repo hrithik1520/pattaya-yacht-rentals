@@ -130,23 +130,55 @@
   const exp = params.get("experience") || params.get("destination");
   if (exp) document.getElementById("boatField").placeholder = exp;
 
+  let stepTransitioning = false;
+  function swapStep(hideEl, showEl, direction) {
+    // direction: 1 = forward, -1 = backward
+    if (stepTransitioning) return;
+    stepTransitioning = true;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const duration = reduceMotion ? 150 : 200;
+    const dx = reduceMotion ? 0 : 12;
+    const transition = `opacity ${duration}ms cubic-bezier(0.23, 1, 0.32, 1), transform ${duration}ms cubic-bezier(0.23, 1, 0.32, 1)`;
+
+    hideEl.style.transition = transition;
+    hideEl.style.transform = `translateX(${direction * -dx}px)`;
+    hideEl.style.opacity = "0";
+    setTimeout(() => {
+      hideEl.classList.add("hidden");
+      hideEl.style.transition = "";
+      hideEl.style.transform = "";
+      hideEl.style.opacity = "";
+
+      showEl.classList.remove("hidden");
+      showEl.style.transform = `translateX(${direction * dx}px)`;
+      showEl.style.opacity = "0";
+      showEl.offsetHeight; // force reflow so the starting position is registered before transitioning
+      showEl.style.transition = transition;
+      showEl.style.transform = "translateX(0)";
+      showEl.style.opacity = "1";
+      setTimeout(() => {
+        showEl.style.transition = "";
+        showEl.style.transform = "";
+        showEl.style.opacity = "";
+        stepTransitioning = false;
+      }, duration);
+    }, duration);
+  }
+
   document.getElementById("toStep2").addEventListener("click", () => {
-    document.getElementById("step1").classList.add("hidden");
-    document.getElementById("step2").classList.remove("hidden");
+    swapStep(document.getElementById("step1"), document.getElementById("step2"), 1);
     document.getElementById("stepDot1").className = "";
     document.getElementById("stepDot2").className = "text-teal";
   });
   document.getElementById("backStep1").addEventListener("click", () => {
-    document.getElementById("step2").classList.add("hidden");
-    document.getElementById("step1").classList.remove("hidden");
+    swapStep(document.getElementById("step2"), document.getElementById("step1"), -1);
     document.getElementById("stepDot1").className = "text-teal";
     document.getElementById("stepDot2").className = "";
   });
   document.getElementById("quoteForm").addEventListener("submit", (e) => {
     e.preventDefault();
-    document.getElementById("quoteForm").classList.add("hidden");
+    swapStep(document.getElementById("quoteForm"), document.getElementById("confirmation"), 1);
     document.getElementById("refNum").textContent = "#PYR-" + Math.floor(100000 + Math.random()*900000);
-    document.getElementById("confirmation").classList.remove("hidden");
   });
 </script>
 </body>

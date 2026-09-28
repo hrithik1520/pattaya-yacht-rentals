@@ -44,24 +44,28 @@ function siteHeader(active) {
       <div class="hidden md:block">
         <a href="/yachts.html" class="btn-primary">Find my yacht</a>
       </div>
-      <button id="menuBtn" class="md:hidden text-navy" aria-label="Open menu">
+      <button id="menuBtn" class="md:hidden text-navy" aria-label="Open menu" aria-expanded="false">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden border-t border-navy/10 bg-cream px-4 py-4 space-y-3 text-navy/90">
-      ${link("/yachts.html", "Yachts", "yachts")}
-      <div class="block"></div>
-      ${link("/experiences/index.html", "Experiences", "experiences")}
-      <div class="block"></div>
-      ${link("/destinations/index.html", "Destinations", "destinations")}
-      <div class="block"></div>
-      ${link("/prices.html", "Prices & Planning", "prices")}
-      <div class="block"></div>
-      ${link("/about.html", "About", "about")}
-      <div class="block"></div>
-      ${link("/faq.html", "FAQ", "faq")}
-      <div class="block"></div>
-      ${link("/contact.html", "Contact", "contact")}
+    <div id="mobileMenu" class="md:hidden border-t border-navy/10 bg-cream">
+      <div class="mobile-menu-inner">
+        <div class="px-4 py-4 space-y-3 text-navy/90">
+          ${link("/yachts.html", "Yachts", "yachts")}
+          <div class="block"></div>
+          ${link("/experiences/index.html", "Experiences", "experiences")}
+          <div class="block"></div>
+          ${link("/destinations/index.html", "Destinations", "destinations")}
+          <div class="block"></div>
+          ${link("/prices.html", "Prices & Planning", "prices")}
+          <div class="block"></div>
+          ${link("/about.html", "About", "about")}
+          <div class="block"></div>
+          ${link("/faq.html", "FAQ", "faq")}
+          <div class="block"></div>
+          ${link("/contact.html", "Contact", "contact")}
+        </div>
+      </div>
     </div>
   </header>`;
 }
@@ -122,7 +126,15 @@ function mountLayout(active) {
   document.getElementById("site-footer").innerHTML = siteFooter();
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
-  menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+  menuBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.hasAttribute("data-open");
+    if (isOpen) {
+      mobileMenu.removeAttribute("data-open");
+    } else {
+      mobileMenu.setAttribute("data-open", "");
+    }
+    menuBtn.setAttribute("aria-expanded", String(!isOpen));
+  });
 
   document.getElementById("floatingWaBtn").href = buildWhatsAppLink();
 }
