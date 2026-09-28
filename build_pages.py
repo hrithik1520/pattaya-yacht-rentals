@@ -131,7 +131,7 @@ def render_yacht(y):
         for i, src in enumerate(gallery)
     )
 
-    breadcrumb_items = [("Home", f"{SITE_URL}/"), ("Yachts", f"{SITE_URL}/yachts.html"), (name, canonical)]
+    breadcrumb_items = [("Home", f"{SITE_URL}/"), ("Yachts", f"{SITE_URL}/yachts/"), (name, canonical)]
 
     product_jsonld = {
         "@context": "https://schema.org",
@@ -222,7 +222,7 @@ def render_yacht(y):
     </div>
     <div>
       <h2 class="font-serif text-xl text-navy mb-3">Before you confirm</h2>
-      <p class="text-sm text-navy/70">Review deposit, balance date and weather/cancellation terms in our <a href="/booking-terms.html" class="text-teal underline">booking terms</a> before paying.</p>
+      <p class="text-sm text-navy/70">Review deposit, balance date and weather/cancellation terms in our <a href="/booking-terms/" class="text-teal underline">booking terms</a> before paying.</p>
     </div>
     <div>
       <h2 class="font-serif text-xl text-navy mb-3">Frequently asked questions</h2>
@@ -239,8 +239,8 @@ def render_yacht(y):
       <p class="font-serif text-xl text-navy">{esc(name)}</p>
       <p class="text-teal font-semibold mt-1">From {'$' if y['currency'] == 'USD' else '฿'}{y['priceCurrent']:,}</p>
       <p class="text-xs text-navy/50">Ask for current rate &mdash; conditions apply</p>
-      <a href="/contact.html?boat={slug}" class="btn-primary w-full text-center block mt-4">Check availability for my date</a>
-      <a href="/yachts.html" class="btn-secondary w-full text-center block mt-2">Show me similar yachts</a>
+      <a href="/contact/?boat={slug}" class="btn-primary w-full text-center block mt-4">Check availability for my date</a>
+      <a href="/yachts/" class="btn-secondary w-full text-center block mt-2">Show me similar yachts</a>
     </div>
   </aside>
 </section>
@@ -259,7 +259,7 @@ def render_destination(d, all_dests):
     title = f"{name} Yacht Charter | Phuket Destinations"
     description = f"Plan a private yacht trip to {name} from Phuket. {d['tagline']}"
     og_image = f"{SITE_URL}{d['image']}" if d.get("image") else f"{SITE_URL}/images/og-default.jpg"
-    breadcrumb_items = [("Home", f"{SITE_URL}/"), ("Destinations", f"{SITE_URL}/destinations/index.html"), (name, canonical)]
+    breadcrumb_items = [("Home", f"{SITE_URL}/"), ("Destinations", f"{SITE_URL}/destinations/"), (name, canonical)]
 
     place_jsonld = {
         "@context": "https://schema.org",
@@ -286,7 +286,7 @@ def render_destination(d, all_dests):
     <nav class="text-sm text-cream/60" aria-label="Breadcrumb">{breadcrumb_html(breadcrumb_items)}</nav>
     <h1 class="font-serif text-4xl mt-2">{esc(name)}</h1>
     <p class="mt-3 text-cream/80 max-w-2xl">{esc(d['tagline'])}</p>
-    <a href="/contact.html?destination={slug}" class="btn-pill-white inline-flex mt-6">Find yachts for this route <span aria-hidden="true">&rarr;</span></a>
+    <a href="/contact/?destination={slug}" class="btn-pill-white inline-flex mt-6">Find yachts for this route <span aria-hidden="true">&rarr;</span></a>
   </div>
 </section>"""
         credit = d.get("imageCredit")
@@ -300,7 +300,7 @@ def render_destination(d, all_dests):
     <nav class="text-sm text-cream/60" aria-label="Breadcrumb">{breadcrumb_html(breadcrumb_items)}</nav>
     <h1 class="font-serif text-4xl mt-2">{esc(name)}</h1>
     <p class="mt-3 text-cream/80 max-w-2xl">{esc(d['tagline'])}</p>
-    <a href="/contact.html?destination={slug}" class="btn-pill-white inline-flex mt-6">Find yachts for this route <span aria-hidden="true">&rarr;</span></a>
+    <a href="/contact/?destination={slug}" class="btn-pill-white inline-flex mt-6">Find yachts for this route <span aria-hidden="true">&rarr;</span></a>
   </div>
 </section>"""
 
@@ -327,9 +327,9 @@ def render_destination(d, all_dests):
     <p class="text-navy/70">Ask which vessel suits this route, whether it's a half-day, full-day or overnight trip, what's included, and whether route-related fees apply. The captain and operator confirm the final itinerary based on conditions on the day.</p>
   </div>
   <div class="grid sm:grid-cols-3 gap-4 text-sm text-center">
-    <a href="/yachts.html" class="card p-4 hover:-translate-y-1 transition">Compare yachts</a>
-    <a href="/day-charters.html" class="card p-4 hover:-translate-y-1 transition">Day charter planning</a>
-    <a href="/contact.html?destination={slug}" class="card p-4 hover:-translate-y-1 transition !bg-teal !text-white">Ask about this route</a>
+    <a href="/yachts/" class="card p-4 hover:-translate-y-1 transition">Compare yachts</a>
+    <a href="/day-charters/" class="card p-4 hover:-translate-y-1 transition">Day charter planning</a>
+    <a href="/contact/?destination={slug}" class="card p-4 hover:-translate-y-1 transition !bg-teal !text-white">Ask about this route</a>
   </div>
   <div>
     <h2 class="font-serif text-xl text-navy mb-4">Other destinations</h2>

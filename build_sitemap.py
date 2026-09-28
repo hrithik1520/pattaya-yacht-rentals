@@ -11,15 +11,15 @@ with open("/tmp/destinations.json") as f:
 
 STATIC_PAGES = [
     ("/", "1.0"),
-    ("/yachts.html", "0.9"),
-    ("/prices.html", "0.7"),
-    ("/day-charters.html", "0.8"),
-    ("/destinations/index.html", "0.8"),
-    ("/about.html", "0.5"),
-    ("/contact.html", "0.6"),
-    ("/faq.html", "0.6"),
-    ("/booking-terms.html", "0.3"),
-    ("/privacy-policy.html", "0.3"),
+    ("/yachts/", "0.9"),
+    ("/prices/", "0.7"),
+    ("/day-charters/", "0.8"),
+    ("/destinations/", "0.8"),
+    ("/about/", "0.5"),
+    ("/contact/", "0.6"),
+    ("/faq/", "0.6"),
+    ("/booking-terms/", "0.3"),
+    ("/privacy-policy/", "0.3"),
 ]
 
 urls = list(STATIC_PAGES)
